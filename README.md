@@ -7,7 +7,7 @@
   Users can perform CRUD operations through a localhost on a local database.
 
   ## Video
-  (https://drive.google.com/file/d/1kNv7FVChgI-KgsRH7imj3bGdv-QRAHP4/view)
+  <https://drive.google.com/file/d/1kNv7FVChgI-KgsRH7imj3bGdv-QRAHP4/view>
 
   ### GitHub
   https://github.com/jeremyodaniel
