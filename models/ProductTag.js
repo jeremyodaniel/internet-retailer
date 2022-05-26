@@ -13,19 +13,19 @@ ProductTag.init(
       primaryKey: true,
       allowNull: false
     },
-    tag_id: {
+    product_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      reference: {
-        model: "tag",
+      // allowNull: true, (Omitted to match project guidelines)
+      references: {
+        model: "product",
         key: "id"
       }
     },
-    product_id: {
+    tag_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      reference: {
-        model: "product",
+      // allowNull: false, (Omitted to match project guidelines)
+      references: {
+        model: "tag",
         key: "id"
       }
     },

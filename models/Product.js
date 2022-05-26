@@ -1,5 +1,7 @@
 // import important parts of sequelize library
+const { validate } = require('graphql');
 const { Model, DataTypes, INTEGER } = require('sequelize');
+const { toDefaultValue } = require('sequelize/types/lib/utils');
 // import our database connection from config.js
 const sequelize = require('../config/connection');
 
@@ -22,16 +24,23 @@ Product.init(
     },
     price: {
       type: DataTypes.DECIMAL(10, 2),
-      allowNull: false
+      allowNull: false,
+      validate: {
+        isDecimal: true
+      }
     },
     stock: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      defaultValue: 10,
+      validate: {
+        isNumeric: true
+      }
     },
     category_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      reference: {
+      //  allowNull: true, (Omitted to match project guidelines)
+      references: {
         model: "category",
         key: "id"
       }
