@@ -124,8 +124,16 @@ router.delete('/:id', (req, res) => {
     }
   })
   .then(products => {
+    if (!products) {
+      res.status(404).json({ message: "No product found with this ID"});
+      return;
+    }
     res.json(products)
   })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;
